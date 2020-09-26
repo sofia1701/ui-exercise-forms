@@ -1,5 +1,5 @@
 .App {
-  min-height: 100vh;
+  height: 100vh;
   display: grid;
   grid-template-rows: 120px 50px 25px auto;
   grid-template-columns: 200px 1fr 200px;
@@ -93,4 +93,29 @@
   font-size: 15px;
   margin-bottom: 20px;
   cursor: pointer;
+}
+
+.instructions-visible {
+  padding: 20px;
+  width: 500px;
+  grid-row: 6;
+  border: 1px solid #b2b2b2;
+  background-color: #fff;
+}
+
+.instructions-hidden {
+  display: none;
+}
+
+.paragraphs {
+  font-size: 15px;
+}
+
+.bullet-point {
+  font-size: 17px;
+}
+
+.extra-info {
+  font-style: italic;
+  font-size: 15px;
 }
