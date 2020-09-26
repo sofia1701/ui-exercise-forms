@@ -1,0 +1,139 @@
+.App {
+  height: 100vh;
+  display: grid;
+  grid-template-rows: 120px 50px 25px auto;
+  grid-template-columns: 200px 1fr 200px;
+  flex-direction: column;
+}
+
+.title,
+.subtitle,
+.reset-form {
+  grid-column: 2;
+}
+
+.title,
+.subtitle {
+  align-self: center;
+  justify-self: center;
+  color: rgb(37, 37, 37);
+}
+
+.title {
+  grid-row: 2;
+  font-size: 20pt;
+}
+
+.subtitle {
+  grid-row: 3;
+  font-weight: 400;
+}
+
+.reset-form {
+  grid-row: 4;
+  align-self: start;
+  height: auto;
+  width: 80%;
+  padding: 4% 10%;
+  margin-top: 30px;
+  background-color: #f7f7f7;
+  border: 1px solid #e7e7e7;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.reset-message {
+  margin-bottom: 20px;
+}
+
+.reset-detailed-message {
+  width: 60%;
+  font-size: 15px;
+  text-align: center;
+  margin-bottom: 20px;
+  color: rgb(37, 37, 37);
+}
+
+.invalid-email {
+  font-style: italic;
+  color: red;
+  margin-bottom: 5px;
+}
+
+.email-label {
+  grid-row: 2;
+  margin-bottom: 10px;
+  color: rgb(37, 37, 37);
+}
+
+.email {
+  grid-row: 3;
+  width: 400px;
+  height: 40px;
+  padding: 0 10px;
+  border-radius: 5px;
+  border: 1px solid rgb(31, 31, 31);
+  margin-bottom: 25px;
+}
+
+.buttons {
+  width: 100%;
+  grid-row: 4;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+  align-items: center;
+}
+
+.reset-btn {
+  background-color: #035597;
+  color: #fff;
+  border: none;
+  border-radius: 2px;
+  height: 50px;
+  padding: 0 40px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.buttons a {
+  color: #035597;
+  font-size: 15px;
+  text-decoration: none;
+}
+
+.instructions-btn {
+  grid-row: 5;
+  color: #035597;
+  font-size: 15px;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
+.instructions-visible {
+  padding: 20px;
+  width: 500px;
+  grid-row: 6;
+  border: 1px solid #b2b2b2;
+  background-color: #fff;
+}
+
+.instructions-hidden {
+  display: none;
+}
+
+.paragraphs {
+  font-size: 15px;
+}
+
+.bullet-point {
+  font-size: 17px;
+}
+
+.extra-info {
+  font-style: italic;
+  font-size: 15px;
+}
