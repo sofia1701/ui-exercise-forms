@@ -1,8 +1,23 @@
 import React, { useState } from "react";
+import axios from "axios";
 import "./app.css";
 
 function App() {
   const [instructionsDisplay, setInstructionsDisplay] = useState(false);
+  const [email, setEmail] = useState("");
+
+  const handleReset = () => {
+    axios
+      .post("http://localhost:3005/customer/account/resetPassword", {
+        email,
+      })
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
   const handleInstructions = () => {
     setInstructionsDisplay(!instructionsDisplay);
@@ -21,10 +36,13 @@ function App() {
             className="email"
             type="email"
             placeholder="Your email address"
+            onChange={(e) => setEmail(e.target.value)}
           />
 
           <div className="buttons">
-            <button className="reset-btn">Reset Password</button>
+            <button className="reset-btn" onClick={handleReset}>
+              Reset Password
+            </button>
             <a href="#!">Go back</a>
           </div>
         </div>
