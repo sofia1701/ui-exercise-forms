@@ -5,17 +5,27 @@ import "./app.css";
 function App() {
   const [instructionsDisplay, setInstructionsDisplay] = useState(false);
   const [email, setEmail] = useState("");
+  const [error, setError] = useState("");
+  const [displayResult, setDisplayResult] = useState(false);
+  const [resetMessage, setResetMessage] = useState("");
+  const [additionalMessage, setAdditionalMessage] = useState(false);
 
   const handleReset = () => {
     axios
       .post("http://localhost:3005/customer/account/resetPassword", {
         email,
       })
-      .then((response) => {
-        console.log(response);
+      .then(() => {
+        setDisplayResult(true);
+        setResetMessage("Success, we have emailed your password reset link.");
+        setAdditionalMessage(true);
       })
       .catch((err) => {
-        console.log(err);
+        setError(err);
+        setDisplayResult(true);
+        setResetMessage(
+          "Sorry, there is no account attached to that email address"
+        );
       });
   };
 
@@ -30,6 +40,15 @@ function App() {
         Please enter your email address below to receive a password reset link.
       </h5>
       <div className="reset-form">
+        {displayResult && <span className="reset-message">{resetMessage}</span>}
+        {additionalMessage && (
+          <p className="reset-detailed-message">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip.
+          </p>
+        )}
         <div>
           <p className="email-label">Email Address</p>
           <input
@@ -38,7 +57,9 @@ function App() {
             placeholder="Your email address"
             onChange={(e) => setEmail(e.target.value)}
           />
-
+          {(error && !email) && (
+            <p className="invalid-email">Please enter a valid email.</p>
+          )}
           <div className="buttons">
             <button className="reset-btn" onClick={handleReset}>
               Reset Password
